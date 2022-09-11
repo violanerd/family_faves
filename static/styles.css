@@ -1,0 +1,30 @@
+h1 {
+    color: blueviolet;
+    text-align: center;
+}
+#recipe-form {
+    background-color: lightgray;
+    border: 5px solid darkblue;
+    border-radius: 25px;
+}
+#new-recipe {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+#new-recipe > * {
+    margin: 5px;
+    padding: 5px
+}
+#btn-new-recipe {
+    width: 50%;
+    background-color: aqua;
+    margin: 5px;
+    border-radius: 25px;
+    align-self: center;
+}
+
+#btn-new-recipe:hover {
+    background-color: blue;
+}
