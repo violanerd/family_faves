@@ -2,29 +2,29 @@ h1 {
     color: blueviolet;
     text-align: center;
 }
-#recipe-form {
+.div-form-style {
     background-color: lightgray;
     border: 5px solid darkblue;
-    border-radius: 25px;
+    border-radius: 10px;
 }
-#new-recipe {
+.form-style {
     display: flex;
     flex-direction: column;
     margin: 1rem;
 }
 
-#new-recipe > * {
+.form-style > * {
     margin: 5px;
     padding: 5px
 }
-#btn-new-recipe {
+.submit-btn {
     width: 50%;
     background-color: aqua;
     margin: 5px;
-    border-radius: 25px;
+    border-radius: 10px;
     align-self: center;
 }
 
-#btn-new-recipe:hover {
+.submit-btn:hover {
     background-color: blue;
 }

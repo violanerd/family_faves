@@ -27,3 +27,7 @@ def index():
 def new_recipe():
     return render_template("new-recipe.html")
 
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
