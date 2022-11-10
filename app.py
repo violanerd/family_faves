@@ -1,8 +1,26 @@
+import os
 from crypt import methods
-from flask import Flask, render_template, url_for, request
+
+from flask import Flask, render_template, request, url_for
+from flaskext.mysql import MySQL
 
 app = Flask(__name__)
 
+mysql = MySQL()
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = os.getenv("mysql_password")
+app.config['MYSQL_DATABASE_DB'] = os.getenv("db")
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+mysql.init_app(app)
+conn = mysql.connect()
+cursor = conn.cursor()
+
+
+
+
+with cursor:
+    cursor.execute("SELECT * FROM user WHERE id = 1")
+    print(cursor.fetchall())
 #url_for('static', filename='styles.css')
 
 @app.route("/", methods=["GET", "POST"])
@@ -21,7 +39,7 @@ def index():
         #user = request.form.get("user")
         return render_template("index.html", new_recipe=new_recipe)
     else:
-        return render_template("index.html", name = "not post")
+        return render_template("index.html", name = "name")
 
 @app.route("/new-recipe")
 def new_recipe():
