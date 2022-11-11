@@ -4,12 +4,18 @@
 {% endblock %}
 {% block body %}
     <h1>TEST</h1>
-    <div>
+    <div id="recipe-container">
         {% if new_recipe is defined %}
-            {{ new_recipe.name }}
-            {{ new_recipe.url }}
-            {{ new_recipe.description }}
-            {{ new_recipe.user }}
+        {% for item in new_recipe %}
+        <div id="recipe-card">
+            <div id="recipe-name"> {{ item.name }} </div>
+            <div id="recipe-description">{{ item.description }}</div>
+            <p>Find it here: </p>
+            <div><a href={{item.url}} target="blank">{{ item.url }}</a></div>
+          
+            Posted by: {{ item.user }}
+        </div>
+        {% endfor %}
         {% else %}
             {{ name }}
         {% endif %}

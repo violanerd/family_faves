@@ -7,41 +7,51 @@ from flaskext.mysql import MySQL
 
 app = Flask(__name__)
 
-mysql = MySQL()
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = os.getenv("mysql_password")
-app.config['MYSQL_DATABASE_DB'] = os.getenv("db")
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-mysql.init_app(app)
-conn = mysql.connect()
-cursor = conn.cursor()
+# mysql = MySQL()
+# app.config['MYSQL_DATABASE_USER'] = 'root'
+# app.config['MYSQL_DATABASE_PASSWORD'] = os.getenv("mysql_password")
+# app.config['MYSQL_DATABASE_DB'] = os.getenv("db")
+# app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+# mysql.init_app(app)
+# conn = mysql.connect()
+# cursor = conn.cursor()
 
 
 
 
-with cursor:
-    cursor.execute("SELECT * FROM user WHERE id = 1")
-    print(cursor.fetchall())
-url_for('static', filename='styles.css')
+# with cursor:
+#     cursor.execute("SELECT * FROM user WHERE id = 1")
+#     print(cursor.fetchall())
+#url_for('static', filename='styles.css')
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    if request.method == "POST":
+    # if request.method == "POST":
         
-        new_recipe = {
-            "name" : request.form.get("recipe-title"),
-            "url" : request.form.get("recipe-url"),
-            "description" : request.form.get("recipe-description"),
-            "user" : request.form.get("user")
-        }
-        #name = request.form.get("recipe-title")
-        #url = request.form.get("recipe-url")
-        #description = request.form.get("recipe-description")
-        #user = request.form.get("user")
+        # new_recipe = {
+        #     "name" : request.form.get("recipe-title"),
+        #     "url" : request.form.get("recipe-url"),
+        #     "description" : request.form.get("recipe-description"),
+        #     "user" : request.form.get("user")
+        # }
+        new_recipe = [
+            {"name" : "Test 1",
+            "url" : "http://www.google.com",
+            "description" : "banana bread",
+            "user" : "Maddy"},
+            {"name" : "Test 2",
+            "url" : "http://www.google.com",
+            "description" : "Pizza",
+            "user" : "Alice"},
+            {"name" : "Test 3",
+            "url" : "http://www.google.com",
+            "description" : "Enchiladas",
+            "user" : "Harry"}
+        ]
         return render_template("index.html", new_recipe=new_recipe)
-    else:
-        # return render_template("index.html", name = "name")
-        return render_template("index.html", name = cursor.fetchall())
+    # else:
+    #     # return render_template("index.html", name = "name")
+    #     return render_template("index.html", name = cursor.fetchall()) this was a test.... 
 
 @app.route("/new-recipe")
 def new_recipe():
@@ -53,3 +63,4 @@ def login():
 
 # if __name__ == '__main__':
 #     app.run()
+

@@ -28,3 +28,18 @@ h1 {
 .submit-btn:hover {
     background-color: blue;
 }
+
+#recipe-card {
+    background-color: lightgray;
+    border: 5px solid darkblue;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 15px;
+    padding: 5px;
+}
+#recipe-container {
+    display: flex;
+    justify-content: center;
+}
