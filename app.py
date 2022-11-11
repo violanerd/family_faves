@@ -2,6 +2,7 @@ import os
 from crypt import methods
 
 from flask import Flask, render_template, request, url_for
+
 from flaskext.mysql import MySQL
 
 app = Flask(__name__)
@@ -21,7 +22,7 @@ cursor = conn.cursor()
 with cursor:
     cursor.execute("SELECT * FROM user WHERE id = 1")
     print(cursor.fetchall())
-#url_for('static', filename='styles.css')
+url_for('static', filename='styles.css')
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -39,7 +40,8 @@ def index():
         #user = request.form.get("user")
         return render_template("index.html", new_recipe=new_recipe)
     else:
-        return render_template("index.html", name = "name")
+        # return render_template("index.html", name = "name")
+        return render_template("index.html", name = cursor.fetchall())
 
 @app.route("/new-recipe")
 def new_recipe():
@@ -49,3 +51,5 @@ def new_recipe():
 def login():
     return render_template("login.html")
 
+# if __name__ == '__main__':
+#     app.run()
