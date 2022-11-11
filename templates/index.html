@@ -8,12 +8,12 @@
         {% if new_recipe is defined %}
         {% for item in new_recipe %}
         <div id="recipe-card">
-            <div id="recipe-name"> {{ item.name }} </div>
-            <div id="recipe-description">{{ item.description }}</div>
-            <p>Find it here: </p>
-            <div><a href={{item.url}} target="blank">{{ item.url }}</a></div>
+            <h2 id="recipe-name"> {{ item.name }} </h2>
+            <div id="recipe-description" class="p-3">{{ item.description }}</div>
+            <div class="p-3">Find it here: </div>
+            <div class="p-3"><a href={{item.url}} target="blank">{{ item.url }}</a></div>
           
-            Posted by: {{ item.user }}
+            <div class="p-3">Posted by: {{ item.user }}</div>
         </div>
         {% endfor %}
         {% else %}
