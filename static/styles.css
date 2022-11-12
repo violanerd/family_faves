@@ -26,7 +26,10 @@ ul {
 li {
     list-style: none;
     padding: 5px;
+    border: 1px whitesmoke solid;
+    margin: 3px;
 }
+
 .div-form-style {
     background-color: rgb(211, 211, 211, .6);
     border: 5px solid darkblue;
