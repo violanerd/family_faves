@@ -6,8 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Family Faves: {% block title %}{% endblock%}</title>
     <link rel="stylesheet" href="../static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <h1><a href="/">Family Faves</a></h1>
+        <nav>
+            <ul>
+                <li><a href="/login">Log In</a></li>
+                <li><a href="/new-recipe">New Recipe</a></li>
+            </ul>
+        </nav>
+    </header>
     {% block body %}{% endblock %}
 </body>
 </html>
