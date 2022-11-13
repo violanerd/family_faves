@@ -80,3 +80,9 @@ li {
 .p-3 {
     padding: 3px;
 }
+.flashes {
+    padding: 20px;
+    margin: 5px;
+    color: #970020;
+    background-color:  rgb(211, 211, 211, .6);
+}

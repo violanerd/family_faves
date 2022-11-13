@@ -38,12 +38,19 @@ def new_recipe():
         url = request.form.get("recipe-url")
         description = request.form.get('recipe-description')
         name = request.form.get('user')
-        conn = get_db_connection()
-        conn.execute('INSERT INTO recipes (recipe_title, url, description, name) VALUES (?, ?, ?, ?)',
-                         (recipe_title, url, description, name))
-        conn.commit()
-        conn.close()
-        return redirect("/")
+        if not recipe_title:
+            flash("Make sure to enter a title")
+        elif not description:
+            flash("Make sure to describe your recipe!")
+        elif not name:
+            flash("Please enter your name")
+        else:  
+            conn = get_db_connection()
+            conn.execute('INSERT INTO recipes (recipe_title, url, description, name) VALUES (?, ?, ?, ?)',
+                            (recipe_title, url, description, name))
+            conn.commit()
+            conn.close()
+            return redirect(url_for("index"))
     return render_template("new-recipe.html")
 
 @app.route("/login")

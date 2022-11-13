@@ -21,12 +21,5 @@ CREATE TABLE recipes (
   name VARCHAR(50) NOT NULL
 );
 
--- INSERT INTO user (username, password) VALUES
---     ("maddy", "password"),
---     ("rachel", "password");
 
--- INSERT INTO recipes (recipe_title, url, description, name) VALUES
---   ("Banana Bread", "http://www.google.com", "Better than mom's, don't tell!", "the kids"),
---   ("Pizza", "http://www.google.com", "Mushroom, sausage and cheese", "Dad"),
---   ("Enchiladas", "http://www.google.com", "Vegan, sweet potato and black bean", "Stacy");
   
