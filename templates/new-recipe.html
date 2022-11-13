@@ -4,7 +4,7 @@
 {% endblock %}
 {% block body %}
     <div id="recipe-form" class="div-form-style">
-        <form id="new-recipe" action="/" method="post" class="form-style">
+        <form id="new-recipe" action="/new-recipe" method="post" class="form-style">
             <label for="recipe-title">Recipe Title: </label>
             <input type="text" id="recipe-title" name="recipe-title">
             <label for="recipe-url">Link to recipe: </label>
@@ -13,7 +13,16 @@
             <textarea id="recipe-description" name="recipe-description"></textarea>
             <label for="user">Your name: </label>
             <input type="text" id="user" name="user">
-            <button type="submit" class="submit-btn" id="btn-new-recipe">Submit</button>
+            <button type="submit" class="submit-btn" id="btn-new-recipe" >Submit</button>
         </form>
     </div>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 {% endblock %}
