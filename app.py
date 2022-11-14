@@ -18,8 +18,6 @@ def get_user(username):
     user = conn.execute('SELECT * FROM user WHERE username = ?',
                         (username,)).fetchone()
     conn.close()
-    # if user is None:
-    #     flash("Something went wrong")
     return user
 
 app.secret_key = os.getenv("secret_key")
@@ -61,35 +59,61 @@ def new_recipe():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     session.clear()
-
+    
     if request.method == "POST":
         username = request.form.get("username")
+        password = request.form.get("password")
+        if not username:
+            flash("Please enter a username")
+        elif not password:
+            flash("Please enter a password")
+        else: 
+            user = get_user(username)
+            
+            if user:
+                #check password
+                if user["password"] != password:
+                    flash("Incorrect password")
+                else:
+                    session["user_id"] = user["id"]
+                    return redirect("/")
+            else:
+                flash("Something went wrong")
+    return render_template("login.html")
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    session.clear()
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
         if not request.form.get("username"):
             flash("Please enter a username")
         elif not request.form.get("password"):
             flash("Please enter a password")
         else: 
+            #check if user is in db already
             user = get_user(username)
             if user:
-                for row in user:
-                    print(row)
+                flash("Username exists already, pick something else")
+            else: 
+                conn = get_db_connection()
+                user = conn.execute("INSERT INTO user (username, password) VALUES (?, ?)",
+                        (username, password))
+                conn.commit()
+                conn.close()
+                # wanted user to go to dashboard without having to login, call db again to get user id
+                user = get_user(username)
                 session["user_id"] = user["id"]
-                print(session)
+
                 return redirect("/")
-            else:
-                flash("Something went wrong")
-    return render_template("login.html")
-@app.route("/signup", methods=["GET", "POST"])
-def signup():
-
-
 
     return render_template("signup.html")
+
 @app.route("/logout")
 def logout():
     session.clear()
 
     return redirect("/")
-# if __name__ == '__main__':
-#     app.run()
+
 
