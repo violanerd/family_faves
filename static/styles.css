@@ -20,6 +20,17 @@ header, a {
     color: whitesmoke;
     text-decoration: none;
 }
+.nav-link {
+    color: whitesmoke;
+    text-decoration: none;
+}
+.nav-link:hover {
+    background-color: whitesmoke;
+    color: darkblue;
+}
+.nav-li:hover {
+    background-color: whitesmoke;
+}
 ul {
     display: flex;
 }
@@ -83,6 +94,9 @@ li {
 .flashes {
     padding: 20px;
     margin: 5px;
-    color: #970020;
-    background-color:  rgb(211, 211, 211, .6);
+    background-color: #970020;
+    color:  white;
+}
+ul.flashes {
+    justify-content: center;
 }

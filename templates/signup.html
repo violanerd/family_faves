@@ -1,16 +1,16 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Log In
+    Sign Up
 {% endblock %}
 {% block body %}
     <div id="login" class="div-form-style">
-        <form action="/login" method="post" class="form-style">
-            <label for="username">Username: </label>
+        <form action="/signup" method="post" class="form-style">
+            <label for="username">Enter a username: </label>
             <input type="text" id="username" name="username" placeholder="username">
-            <label for="password">Password: </label>
+            <label for="password">Enter a password 8 characters or less: </label>
             <input id="password" name="password" placeholder="Password" type="password">
-        <button id="btn-login" class="submit-btn" type="submit">Log In</button>
+        <button id="btn-login" class="submit-btn" type="submit">Sign Up</button>
         </form>
     </div>
     {% with messages = get_flashed_messages() %}
