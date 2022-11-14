@@ -1,4 +1,15 @@
-<div>Here is the data:
-    {{data["url"]}}
-    {{data["name"]}}
-<img src="{{data['img']}}"></div>
+{% extends "layout.html" %}
+
+{% block title %}
+    Random
+{% endblock %}
+{% block body %}
+
+<div id="recipe-card">
+    <h2 id="recipe-name"> {{data["name"]}} </h2>
+    <img class="p-3" src="{{data['img']}}"/>
+    <div class="p-3">Find it here: </div>
+    <div class="p-3"><a class="outside-link" href="{{data['url']}}" target="blank">{{data["url"]}}</a></div>
+</div>
+
+{% endblock %}

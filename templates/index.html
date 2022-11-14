@@ -10,7 +10,7 @@
             <h2 id="recipe-name"> {{ item.recipe_title }} </h2>
             <div id="recipe-description" class="p-3">{{ item.description }}</div>
             <div class="p-3">Find it here: </div>
-            <div class="p-3"><a href={{item.url}} target="blank">{{ item.url }}</a></div>
+            <div class="p-3"><a class="outside-link" href={{item.url}} target="blank">{{ item.url }}</a></div>
           
             <div class="p-3">Posted by: {{ item.name }}</div>
         </div>

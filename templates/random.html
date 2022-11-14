@@ -1,3 +1,13 @@
-<form action="/random" method="post">
-    <button type="submit">Random</button>
+{% extends "layout.html" %}
+
+{% block title %}
+    Random
+{% endblock %}
+{% block body %}
+<div id="random" class="div-form-style">
+<form action="/random" method="post" class="form-style">
+    <h2 id="random">Click the button to get a random recipe</h2>
+    <button type="submit" class="submit-btn">I am feeling lucky!</button>
 </form>
+</div>
+{% endblock %}

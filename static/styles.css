@@ -16,7 +16,7 @@ header {
     align-items: center;
     justify-content: space-around;
 }
-header, a {
+h1>a {
     color: whitesmoke;
     text-decoration: none;
 }
@@ -99,4 +99,13 @@ li {
 }
 ul.flashes {
     justify-content: center;
+}
+#random {
+    text-align: center;
+}
+.outside-link {
+    color: rgb(123, 64, 177);
+}
+.outside-link:hover {
+    color: black;
 }
