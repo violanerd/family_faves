@@ -34,6 +34,11 @@
   * Flask
   * Sqlite3
   * Edamam API
+
+  ## Further Development
+  * Ability to edit and delete recipes
+  * Button to add random recipe
+  * View recipes by person
   
   ## Questions
 
