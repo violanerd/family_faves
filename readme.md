@@ -6,6 +6,7 @@
   On the project learning and challenges:
   * Connecting a database - Sqlite3 versus MySQL - ended up with Sqlite3
   * Learning a python environment coming from a node background
+  * flask-session
   
   ## Table of Contents
   * [Installation](#installation)
